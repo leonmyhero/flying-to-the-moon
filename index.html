@@ -1,36 +1,49 @@
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>HTML5 Canvas demo 2.1</title>
-    
-  </head>
-  <body>
-    <div id="container">
-      <canvas id="canvas1" width="1119" height="800" style="position: absolute; left: 0; top: 0; z-index: 1;">
-        This text is displayed if your browser does not support HTML5 Canvas.
-      </canvas>
-	  <img id='stadium' src="footballstadium.jpg" style="width: 1119px; height: 800px; position: absolute; left: 0; top: 0; z-index: 0;">
+<head>
+  <meta charset = "utf-8">
+  <title>tinyHeart</title>
+  <style type="text/css">
+    body {
+      padding-top: 10px;
+    }
+    .all_bg {
+      width: 1119px;
+      height: 800px;
+      margin: 0px auto;
+    }
+    #allcanvas {
+      position: 1119px;
+      height: 800px;
+      margin: 0px;
+    }
+    #canvas1 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+    }
+    #canvas2 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class = "all_bg">
+    <div id = "allcanvas">
+      <canvas id = "canvas1" width = "1119" height = "800"></canvas>
+      <canvas id = "canvas2" width = "1119" height = "800"></canvas>
+      <img id='stadium' src="footballstadium.jpg" style="width: 1119px; height: 800px; position: absolute; left: 0; top: 0; z-index:0">
     </div>
-	<canvas id="canvas2" width="100" height="150"></canvas>
-	<img id="player" src="large-hero.png">
-    <div style="font-family: Verdana; font-size: 12px;">
-      <p>Click to select. Click on selection handles to resize. Double click to create a new node.</p>
-      <p>
-        <a href="UTS.js">link to the javascript file.</a>
-      </p><p>
-        <a href="http://simonsarris.com/blog/225-canvas-selecting-resizing-shape">link to tutorial</a>
-      </p><p>
-        <a href="http://simonsarris.com/blog/510-making-html5-canvas-useful">link to tutorial part 1</a>
-      </p><p>
-      	Note that part 1 of the tutorial received a significant update, this version is a
-      	combination of the new part 1 with the outdated part 2, merged by
-        <a href="https://github.com/amclark">Andrew Clark</a>.
-      </p><p>
-      	<br />
-        <a href="http://simonsarris.com">simonsarris.com</a>
-      </p>
-    </div>
-  </body>
-  <script type="text/javascript" src="UTS.js"></script>
+  </div>
+  <script type = "text/javascript" src = "commonFunctions.js"></script>
+  <script type = "text/javascript" src = "main.js"></script>
+  
+  <script type = "text/javascript" src = "player.js"></script>
+  <script type = "text/javascript" src = "station.js"></script>
+</body>
 </html>
