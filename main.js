@@ -1,9 +1,12 @@
-var can;
-var ctx;
+var can1;
+var ctx1;
+var can2;
+var ctx2;
 
 var canWidth;
 var player;
-
+var stationW = 60;
+var stationH = 40;
 //var empty = new Image();
 //var goldrare = new Image();
 //var hero = new Image();
@@ -39,16 +42,23 @@ var imgs=[
 ];
 
 function init() {
-	can = document.getElementById("canvas1");
-	ctx = can.getContext("2d");
+	can1 = document.getElementById("canvas1");
+	ctx1 = can1.getContext("2d");
+	can2 = document.getElementById("canvas2");
+	ctx2 = can1.getContext("2d");
+	
 	loadImages(imgs);
 	generatePlayers(squarePositions);
-	generateStation(squarePositions);
+	generateStation(squarePositions, ctx2);
 	//empty.src = "pitch_player.png";
 	//goldrare.src = "small-gold-rare.png";
 	//hero.src = "small-hero.png";
 	//black.src = "small-if-gold.png";
 	//blue.src = "small-toty.png";
+	can1.addEventListener('mousemove', function(evt) {
+		var mousePos = getMouse(can1,evt);
+		console.log(mousePos.x + " " + mousePos.y);
+    }, false);
 }
 
 function game() {
