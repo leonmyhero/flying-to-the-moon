@@ -3,47 +3,24 @@
 <html>
 <head>
   <meta charset = "utf-8">
-  <title>tinyHeart</title>
+  <title>Ultimate Team</title>
   <style type="text/css">
-    body {
-      padding-top: 10px;
-    }
-    .all_bg {
-      width: 1119px;
-      height: 800px;
-      margin: 0px auto;
-    }
-    #allcanvas {
-      position: 1119px;
-      height: 800px;
-      margin: 0px;
-    }
-    #canvas1 {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 2;
-    }
-    #canvas2 {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-    }
+
   </style>
 </head>
 <body>
   <div class = "all_bg">
     <div id = "allcanvas">
-      <canvas id = "canvas1" width = "1119" height = "800"></canvas>
-      <canvas id = "canvas2" width = "1119" height = "800"></canvas>
-      <img id='stadium' src="footballstadium.jpg" style="width: 1119px; height: 800px; position: absolute; left: 0; top: 0; z-index:0">
+      <canvas id = "canvas1" width = "1119" height = "800" style="position: absolute; left: 0; top: 0; z-index:2"></canvas>
+      <canvas id = "canvas2" width = "1119" height = "800" style="position: absolute; left: 0; top: 0; z-index:1"></canvas>
+      <img id='stadium' src="FootballField.png" style="width: 1119px; height: 800px; position: absolute; left: 0; top: 0; z-index:0">
     </div>
   </div>
   <script type = "text/javascript" src = "commonFunctions.js"></script>
   <script type = "text/javascript" src = "main.js"></script>
-  
+  <script type = "text/javascript" src = "chemistry.js"></script>
   <script type = "text/javascript" src = "player.js"></script>
-  <script type = "text/javascript" src = "station.js"></script>
+  <script type = "text/javascript" src = "base.js"></script>
+  <script type = "text/javascript" src = "cardframe.js"></script>
 </body>
 </html>
