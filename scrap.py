@@ -103,6 +103,11 @@ for playerURL in playerURLs:
     rs = soup.find("table", {"class" : "table table-striped mt-20 player-table"})
     tds = rs.find_all("td")
     cards['release'] = tds[1].text
+    backdiv = soup.find('div', {'class' : 'card-16'})
+    backclass= backdiv['class'][1]
+    backclass = backclass.replace("card-16-","")
+    print(backclass)
+    cards['backclass'] = backclass
     f.write(str(cards) + '\n')
     #players.append(cards)
 f.close()
