@@ -21,7 +21,7 @@ def downloadimg(imgname, imgURL):
 for x in range(0, pages):
     sURL = url + str(x)
     req = urllib.request.Request(sURL, headers={'User-Agent' : 'Mozilla/5.0'})
-    html = urllib.request.urlopen(req).read()
+    html = urllib.request.urlopen(req).read().decode('utf-8')
 
     soup = BeautifulSoup(str(html), "html.parser")
     tds = soup.find_all("td", {"class" : "text-left"})
@@ -30,14 +30,15 @@ for x in range(0, pages):
         PlayerURL = li['href']
         playerURLs.append(PlayerURL)
         
-f = open("fifa.txt","w")        
+f = open("fifa.txt","w",encoding="utf-8")        
 for playerURL in playerURLs:
     #cards.clear()
     url = "http://www.futwiz.com" + playerURL
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-    html = urllib.request.urlopen(req).read()
+    html = urllib.request.urlopen(req).read().decode('utf-8')
 
     soup = BeautifulSoup(str(html),'html.parser')
+    pattern = re.compile(u'\u2605')
 
     de = soup.find("div", {"class" : "headercopy"})
     cards['title'] = de.text
@@ -60,6 +61,7 @@ for playerURL in playerURLs:
 
     cards['faceimg'] = imgname
     cards['cardname'] = soup.find("div", {'class' : 'card-16-name'}).text
+    print(cards['cardname'])
     cards['rating'] = soup.find("div", {'class' : 'card-16-rating'}).text
     cards['position'] = soup.find("div", {'class' : 'card-16-position'}).text
     cards['chemstyle'] = soup.find("div", {'class' : 'card-16-chemstyletxt'}).text.replace('\\n','')
@@ -106,7 +108,6 @@ for playerURL in playerURLs:
     backdiv = soup.find('div', {'class' : 'card-16'})
     backclass= backdiv['class'][1]
     backclass = backclass.replace("card-16-","")
-    print(backclass)
     cards['backclass'] = backclass
     f.write(str(cards) + '\n')
     #players.append(cards)
